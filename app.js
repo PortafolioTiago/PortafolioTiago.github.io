@@ -182,7 +182,7 @@ projectWrappers.forEach(wrapper => {
 
 // === Copy Email to Clipboard ===
 const emailBox = document.getElementById('emailBox');
-const emailText = 'tiago@ejemplo.com';
+const emailText = 'tiagodavila08@gmail.com';
 
 if (emailBox) {
     emailBox.addEventListener('click', async () => {
@@ -207,4 +207,5 @@ if (emailBox) {
             }, 2000);
         }
     });
+
 }
