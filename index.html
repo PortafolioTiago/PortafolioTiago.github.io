@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portafolio de Tiago</title>
+    <link rel="icon" href="imagenes/logo.png">
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Monomakh&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body class="preloader-active">
+    <div id="preloader">
+        <div class="preloader-text">
+            <span class="letter-t">T</span><span class="letters-iago">iago</span>
+        </div>
+    </div>
+    <header class="header">
+        <div class="logo">T</div>
+    
+        <div class="menu-container">
+            <div class="menu">
+                <span class="left-icon">⟳</span>
+                <div class="links">
+                    <a href="#about">Sobre mí</a>
+                    <a href="#work">Work</a>
+                    <a href="#contact">Contacto</a>
+                </div>
+                <span class="right-icon">◯</span>
+            </div>
+        </div>
+    
+        <div id="clock" class="clock"></div>
+    </header>
+
+    <section class="hero">
+        <div id="canvas-container"></div>
+        <div class="hero-inner">
+            <h1 class="line" data-animate="slide-up" data-delay="2600">Hola, soy <span>Tiago</span></h1>
+            <h1 class="line" data-animate="slide-up" data-delay="2700">Diseño & desarrollo</h1>
+            <h1 class="line" data-animate="slide-up" data-delay="2900">web modernas.</h1>
+        </div>
+    </section>
+
+    <section id="work" class="projects" data-parallax>
+        <h3 id="proyectosDestacadosTexto">TRABAJO RECIENTE</h3>
+        
+        <div class="projects-grid">
+            <div class="project-item" data-project="1">
+                <div class="project-image-wrapper">
+                    <video class="project-video" loop muted playsinline>
+                        <source src="proyectos/Grabación 2025-11-08 203227.mp4" type="video/mp4">
+                    </video>
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <h4>Web De Bailarines</h4>
+                        
+                            <div class="project-tags">
+                                <span>PHP</span>
+                                <span>GSAP</span>
+                                <span>Boostrap</span>
+                                <span>MySql</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shine"></div>
+                </div>
+            </div>
+
+            <div class="project-item" data-project="2">
+                <div class="project-image-wrapper">
+                    <video class="project-video" loop muted playsinline>
+                        <source src="proyectos/Grabación 2025-11-08 204115.mp4" type="video/mp4">
+                    </video>
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <h4>Web de cine</h4>
+                            
+                            <div class="project-tags">
+                                <span>PHP</span>
+                                <span>MySql</span>
+                                <span>Boostrap</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shine"></div>
+                </div>
+            </div>
+
+            <div class="project-item" data-project="3">
+                <div class="project-image-wrapper">
+                    <video class="project-video" loop muted playsinline>
+                        <source src="proyectos/Grabación 2025-11-08 210003.mp4" type="video/mp4">
+                    </video>
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <h4>Concesionaria</h4>
+                            <div class="project-tags">
+                                <span>JavaScript</span>
+                                <span>Springboot</span>
+                                <span>MongoDB</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shine"></div>
+                </div>
+            </div>
+            <div class="project-item" data-project="4">
+                <div class="project-image-wrapper">
+                    <video class="project-video" loop muted playsinline>
+                        <source src="proyectos/Grabación 2025-12-10 122506.mp4" type="video/mp4">
+                    </video>
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <h4>Red Social</h4>
+                            <div class="project-tags">
+                                <span>React</span>
+                                <span>Springboot</span>
+                                <span>MySql</span>
+                                <span>TypeScript</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shine"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section" data-parallax>
+        <div class="about-content">
+            <div class="about-text">
+                <h2 class="about-title">Sobre mí</h2>
+                <p class="about-description">
+                    <span class="highlight-name">Tiago</span> ha estado 
+                    <span id="typingText" class="typing-text"></span>
+                    <span class="typing-cursor">|</span>
+                </p>
+            </div>
+            
+            <div class="skills-icons">
+                <div class="skill-icon" data-skill="javascript" style="--x: 15%; --y: 10%;">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+                    <span class="skill-label">JavaScript</span>
+                </div>
+            
+                <div class="skill-icon" data-skill="figma" style="--x: 25%; --y: 85%;">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" />
+                    <span class="skill-label">Figma</span>
+                </div>
+                    
+                <div class="skill-icon" data-skill="python" style="--x: 65%; --y: 15%;">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
+                    <span class="skill-label">Python</span>
+                </div>
+                    
+                <div class="skill-icon" data-skill="java" style="--x: 85%; --y: 35%;">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
+                    <span class="skill-label">Java</span>
+                </div>
+                    
+                <div class="skill-icon" data-skill="spring" style="--x: 10%; --y: 55%;">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Boot" />
+                    <span class="skill-label">Spring Boot</span>
+                </div>
+                    
+                <div class="skill-icon" data-skill="mongodb" style="--x: 40%; --y: 65%;">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" />
+                    <span class="skill-label">MongoDB</span>
+                </div>
+                    
+                <div class="skill-icon" data-skill="postgresql" style="--x: 75%; --y: 70%;">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" />
+                    <span class="skill-label">SQL</span>
+                </div>
+                    
+                <div class="skill-icon" data-skill="react" style="--x: 30%; --y: 25%;">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
+                    <span class="skill-label">React</span>
+                </div>
+                    
+                <div class="skill-icon" data-skill="nodejs" style="--x: 50%; --y: 45%;">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" />
+                    <span class="skill-label">Node.js</span>
+                </div>
+            </div>
+</section>
+
+    <footer id="contact" data-parallax>
+        <h2 class="contact-title">Contacto</h2>
+        <div class="contact-container">
+            <div class="email-box" id="emailBox">
+                <svg class="mail-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+                <span class="email-text">Mail de Tiago</span>
+                <span class="copy-tooltip">Copiar mail</span>
+                <span class="copied-feedback">¡Copiado!</span>
+            </div>
+        </div>
+        
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
