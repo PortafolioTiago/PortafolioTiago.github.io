@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // ==== ANIMACIÓN DE ENTRADA MEJORADA (Zoom through) ====
+    // ==== ANIMACIÓN DE ENTRADA (Zoom through) ====
     const preloader = document.getElementById('preloader');
     
     if (preloader) {
@@ -11,8 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Calculamos cuánto hay que mover la T para centrarla después de que se vaya "iago"
-        // (Ajuste visual aproximado para que el zoom se sienta centrado)
         const centerOffset = window.innerWidth < 768 ? 20 : 40; 
 
         tl
@@ -24,32 +22,32 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // 2. "iago" se va y la "T" se centra y cambia de color
         .to(".letters-iago", { 
-            x: "20px",      // Pequeño rebote a la derecha...
+            x: "20px",
             opacity: 0,     
             duration: 0.5, 
             ease: "power2.in"
         })
         .to(".letter-t", { 
             color: "#00ffcc",
-            x: centerOffset, // Movemos la T al centro visual
+            x: centerOffset,
             duration: 0.5,
             ease: "power2.out"
-        }, "<") // Ocurre al mismo tiempo que lo anterior
+        }, "<")
 
         // 3. LA "T" CRECE HASTA OCUPAR TODO (El efecto túnel)
         .to(".letter-t", {
-            scale: 300,        // Escala masiva para cubrir cualquier pantalla 4k
-            duration: 1.2,     // Duración del viaje
-            ease: "power4.in", // Empieza lento y acelera como un cohete
-            transformOrigin: "50% 58%" // Ajuste fino para hacer zoom al centro de la letra
+            scale: 300,
+            duration: 1.2,
+            ease: "power4.in",
+            transformOrigin: "50% 58%"
         })
         
-        // 4. Desvanecer el preloader justo cuando la pantalla está llena de color
+        // 4. Desvanecer el preloader
         .to("#preloader", {
             opacity: 0,
             duration: 0.4,
-            ease: "none" // Lineal para que sea instantáneo
-        }, "-=0.2"); // Empieza un poquito antes de que termine de crecer la T
+            ease: "none"
+        }, "-=0.2");
     }
 });
 // === Reloj ===
@@ -63,7 +61,7 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
-// === Typing Effect (una sola vez) ===
+// === Typing Effect ===
 const typingElement = document.getElementById('typingText');
 const cursorElement = document.getElementById('typingCursor');
 const textToType = 'diseñando páginas web desde 2024 en diversos proyectos, actualmente estudia en el Instituto Politécnico Modelo donde sigue aprendiendo sobre el desarrollo de apps y páginas web.';
@@ -97,7 +95,7 @@ if (aboutSection) {
     typingObserver.observe(aboutSection);
 }
 
-// === Slide-up animación secuencial ===
+// === Slide-up animación ===
 const animatedLines = document.querySelectorAll("[data-animate]");
 
 function showSequentially() {
@@ -218,7 +216,6 @@ projectWrappers.forEach(wrapper => {
     const video = wrapper.querySelector('video');
     
     if (video) {
-        // Precargar el video
         video.load();
         
         wrapper.addEventListener('mouseenter', () => {
@@ -264,7 +261,6 @@ if (emailBox) {
 }
 // === Three.js 3D Background ===
 function initThreeJS() {
-    // 1. Verificación de seguridad: Si es móvil, NO iniciar Three.js
     if (window.innerWidth < 968) return;
 
     const container = document.getElementById('canvas-container');
@@ -279,8 +275,6 @@ function initThreeJS() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
 
-    // --- AJUSTES DE TAMAÑO ---
-    // Antes: (1.5, 0.4...) -> Ahora: (1.1, 0.3...) para hacerlo más chico y elegante
     const geometry = new THREE.TorusKnotGeometry(1.1, 0.3, 100, 16);
     
     const material = new THREE.MeshBasicMaterial({ 
@@ -292,8 +286,6 @@ function initThreeJS() {
     
     const torusKnot = new THREE.Mesh(geometry, material);
     
-    // --- AJUSTES DE POSICIÓN ---
-    // Movemos el objeto a la derecha (X positivo)
     torusKnot.position.x = 3; 
 
     scene.add(torusKnot);
@@ -305,7 +297,6 @@ function initThreeJS() {
         torusKnot.rotation.x += 0.003;
         torusKnot.rotation.y += 0.005;
 
-        // Efecto flotante leve
         torusKnot.position.y = Math.sin(Date.now() * 0.001) * 0.2;
 
         renderer.render(scene, camera);
@@ -313,7 +304,6 @@ function initThreeJS() {
 
     animate();
 
-    // Responsive: Ajustar si cambia el tamaño de ventana
     window.addEventListener('resize', () => {
         if (window.innerWidth < 968) {
             container.style.display = 'none';
@@ -325,12 +315,10 @@ function initThreeJS() {
         }
     });
     
-    // Interacción suave con el mouse
     document.addEventListener('mousemove', (event) => {
         const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
         const mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
         
-        // Rotación sutil basada en el mouse
         torusKnot.rotation.x += mouseY * 0.05;
         torusKnot.rotation.y += mouseX * 0.05;
     });
@@ -339,7 +327,6 @@ function initThreeJS() {
 document.addEventListener('DOMContentLoaded', initThreeJS);
 // === 3D Tilt Effect for Projects ===
 function initTiltEffect() {
-    // Solo activamos en pantallas grandes (mouse)
     if (window.matchMedia("(hover: none)").matches) return;
 
     const cards = document.querySelectorAll('.project-item');
@@ -350,46 +337,34 @@ function initTiltEffect() {
 
         if (!wrapper || !shine) return;
 
-        // Movimiento del Mouse
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
             
-            // Calculamos la posición del mouse dentro de la tarjeta
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
             
-            // Calculamos el centro
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
             
-            // Calculamos la rotación (máximo 15 grados para no marear)
-            // Multiplicamos por valores pequeños para suavizar
-            const rotateX = ((y - centerY) / centerY) * -10; // Eje X invertido
-            const rotateY = ((x - centerX) / centerX) * 10;  // Eje Y normal
+            const rotateX = ((y - centerY) / centerY) * -10;
+            const rotateY = ((x - centerX) / centerX) * 10;
 
-            // Aplicamos la rotación
             wrapper.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
 
-            // Calculamos el brillo (se mueve opuesto al mouse)
-            // Usamos background-position o gradiente dinámico
             shine.style.opacity = '1';
             shine.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 80%)`;
         });
 
-        // Cuando el mouse sale, reseteamos suavemente
         card.addEventListener('mouseleave', () => {
-            // Usamos una transición suave definida en CSS o forzada aquí
             wrapper.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
             wrapper.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
             shine.style.opacity = '0';
             
-            // Quitamos la transición después de que termine para que el mousemove sea rápido
             setTimeout(() => {
                 wrapper.style.transition = 'transform 0.1s ease-out';
             }, 500);
         });
         
-        // Entrada (MouseEnter) para quitar transiciones lentas
         card.addEventListener('mouseenter', () => {
             wrapper.style.transition = 'transform 0.1s ease-out';
         });
